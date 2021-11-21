@@ -126,7 +126,7 @@ if __name__ == "__main__":
     print("Info: Your app is ready to run!")
     exit()
 elif sys.argv[1] == "-h":
-    print("-i create installer package\n-p create new project\n-h help")
+    print("-i create installer package\n-p create new project\n-f fix package.json file\n-h help")
 elif sys.argv[1] == "-r":
   try:
     filer = open("package.json", "r")
