@@ -2,6 +2,8 @@ import json
 import sys
 import os
 
+print("Warn: PyMenager still under development")
+
 if sys.argv[1] == "-i":
     print("Info: Welcome to PyMenager install maker!")
     installs = input(
@@ -56,6 +58,11 @@ exit()""")
 elif sys.argv[1] == "-p":
     print("---PyMenager project mode---")
     projname = input("Your project name\n> ")
+    debug = ' ' in projname
+    if debug == True:
+      print("Error: The project name cannot contain spaces!")
+      print("Error: Can't create project!")
+      exit(1)
     cmd = "mkdir " + projname
     os.system(cmd)
     cmd = """cd """ + projname + """ 
@@ -144,3 +151,21 @@ elif sys.argv[1] == "-r":
   except:
     print("Error: package.json not found!")
     exit(1)
+elif sys.argv[1] == "-f":
+  print("Info: PyMenager file fix mode")
+  dire = input("Were is your package.json file to fix?\n> ")
+  fix = open(dire, "w")
+  print("Info: Package.json rewrite...")
+  projname = input("Enter your project name\n> ")
+  print("Info: Attempting to fix file...")
+  pack = {
+        "name": projname,
+        "run": "python3 app.py",
+        "create": "PyMenager",
+        "lang": "python3",
+  }
+  final = json.dumps(pack, indent=3, sort_keys=True)
+  fix.write(final)
+  print("Info: File was fixed!")
+  fix.close()
+  exit()
