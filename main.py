@@ -22,7 +22,7 @@ if sys.argv[1] == "-i":
     print("Info: Writing config file...")
     conf = {"name": projname, "installs": installs, "repo": git}
     convert = json.dumps(conf)
-    file = open("pymenager.pm", "w")
+    file = open("pymenager.pmx", "w")
     file.write(convert)
     file.close()
     print("Info: Creating installer...")
@@ -32,7 +32,7 @@ input("Info: Press enter to start installing...")\n
 import os\n
 os.system("clear")\n
 import json\n
-conf = open("PyMenager.pm", "r")\n
+conf = open("pymenager.pmx", "r")\n
 cnv = conf.read()\n
 data = json.loads(cnv)\n
 g = data["repo"]\n
@@ -46,7 +46,7 @@ cmd = "pip install "+i\n
 os.system(cmd)\n
 conf.close()\n
 print("Info: PyMenager installer delete")\n
-os.system("rm pymenager.pm")\n
+os.system("rm pymenager.pmx")\n
 os.system("rm installer.py")\n
 print("Info: PyMenager files was deleted")\n
 print("Info: PyMenager installer exit")\n
