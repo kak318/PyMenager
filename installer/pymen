@@ -189,7 +189,7 @@ try:
       packages = package["packages"]
       cmd = "pip install "+packages
       os.system(cmd)
-      print("Info: package operation susses")
+      print("Info: package operation succes!")
     except:
       print("Error: Something went wrong!")
   else:

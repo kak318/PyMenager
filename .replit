@@ -1,1 +1,1 @@
-run="python main.py -f"
+run="python main.py -p"
