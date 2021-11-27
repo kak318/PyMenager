@@ -3,8 +3,9 @@
 import json
 import sys
 import os
+from termcolor import colored
 try:
-  print("Warn: PyMenager still under development")
+  print(colored("Warn: PyMenager still under development", 'yellow'))
 
   if sys.argv[1] == "-i":
       print("Info: Welcome to PyMenager install maker!")
@@ -62,8 +63,8 @@ try:
       projname = input("Your project name\n> ")
       debug = ' ' in projname
       if debug == True:
-        print("Error: The project name cannot contain spaces!")
-        print("Error: Can't create project!")
+        print(colored("Error: The project name cannot contain spaces!", 'red'))
+        print(colored("Error: Can't create project!", 'red'))
         exit(1)
       cmd = "mkdir " + projname
       os.system(cmd)
@@ -145,13 +146,13 @@ try:
           print("Info: Attempting to run "+name+"...")
           os.system(run)
         else:
-          print("Error: PyMenager supports only python3!")
+          print(colored("Error: PyMenager supports only python3!", 'red'))
           exit(1)
       else:
-        print("Error: package.json is not from PyMenager!")
+        print(colored("Error: package.json is not from PyMenager!", 'red'))
         exit(1)
     except:
-      print("Error: package.json not found!")
+      print(colored("Error: package.json not found!", 'red'))
       exit(1)
   elif sys.argv[1] == "-f":
     print("Info: PyMenager file fix mode")
@@ -189,10 +190,17 @@ try:
       packages = package["packages"]
       cmd = "pip install "+packages
       os.system(cmd)
-      print("Info: package operation susses")
+      print(colored("Info: package operation succes", 'green'))
     except:
-      print("Error: Something went wrong!")
+      print(colored("Error: Something went wrong!", 'red'))
+  elif sys.argv[1] == "-up":
+    inp = input("Do you want to upgrade your PIP? [y/n]\n> ")
+    if inp == "y":
+      cmd = "python3 -m pip install --upgrade pip"
+      os.system(cmd)
+    else:
+      print("Info: Cancel")
   else:
-    print("Error: For help use -h")
+    print(colored("Error: For help use -h", 'red'))
 except:
-  print("Error: For help use -h")
+  print(colored("Info: Use '-h' for help", 'blue'))
