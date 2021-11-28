@@ -1,1 +1,1 @@
-run="python main.py -up"
+run="python v2/main.py -p"

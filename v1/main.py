@@ -180,7 +180,7 @@ try:
     print("Info: Done!")
     exit()
   elif sys.argv[1] == "-v":
-    print("Info: PyMenager Version = 1.4")
+    print("Info: PyMenager Version = 1.6")
     exit()
   elif sys.argv[1] == "install":
     try:
