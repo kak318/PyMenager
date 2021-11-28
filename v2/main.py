@@ -21,7 +21,8 @@ if args.version:
   info("2.0")
 elif args.project:
   info("PyMenager new project")
-  name = input("> ")
+
+  name = input("NAME > ")
 
   fltr = " " in name
   if fltr:
@@ -53,7 +54,7 @@ elif args.project:
     "run": "python3 main.py"
   }
 
-  final = json.dumps(pack, indent=2)
+  final = json.dumps(pack, indent=3)
   filename = f"{name}/package.json"
   file = open(filename, "w")
   file.write(final)
